@@ -2,6 +2,27 @@ nav li{
     display: inline-block;
 }
 
+/* 
+Figer des balises HTML
+*/
+    header, footer {
+        position: fixed;
+        left: 0;
+        width: 100%;
+        background: black;
+        color: white;
+        text-align: center;
+    }
+
+    header{
+        top: 0;
+    }
+
+    footer{
+        bottom: 0;
+    }
+/**/
+
 /*
 Les flexboxes
 */
@@ -20,9 +41,42 @@ Les flexboxes
         -moz-align-items: center;
         -webkit-align-items: center;
         align-items: center;
+
+        /* Gestion de la direction */
+        -moz-flex-direction: column;
+        -webkit-flex-direction: column;
+        flex-direction: column;
+
+        margin: 8rem auto 4rem auto
     }
 
     section{
-        width: 20%;
+        width: 100%;
+        height: 100vh; /* 100% de la hauteur de la vue */
     }
+
+    /* 
+    Modifier l'ordre des boites flexibles
+    */
+        section:first-of-type{
+            -moz-order: 1;
+            -webkit-order: 1;
+            -o-order: 1;
+            order: 1;
+        }
+
+        section:nth-child(2){
+            -moz-order: 2;
+            -webkit-order: 2;
+            -o-order: 2;
+            order: 2;
+        }
+
+        section:last-child{
+            -moz-order: 0;
+            -webkit-order: 0;
+            -o-order: 0;
+            order: 0;
+        }
+    /**/
 /**/
