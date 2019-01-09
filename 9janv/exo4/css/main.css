@@ -1,0 +1,28 @@
+nav li{
+    display: inline-block;
+}
+
+/*
+Les flexboxes
+*/
+    main {
+        /* Définition des boites flexibles */
+        display: -moz-flex;
+        display: -webkit-flex;
+        display: flex;
+
+        /* Gesgtion des espaces entre les boites */
+        -moz-justify-content: space-between;
+        -webkit-justify-content: space-between;
+        justify-content: space-between;
+
+        /* Gestion de l'aligement des boites */
+        -moz-align-items: center;
+        -webkit-align-items: center;
+        align-items: center;
+    }
+
+    section{
+        width: 20%;
+    }
+/**/

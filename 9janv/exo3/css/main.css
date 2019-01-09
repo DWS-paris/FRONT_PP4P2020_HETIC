@@ -1,0 +1,18 @@
+/* 
+Types de balises
+- inline => largeur du contenu
+- block => toute la largeur disponible
+*/
+
+/* Changer le type d'une balise */
+b{
+    display: block;
+    margin: 2rem auto;
+}
+
+/* Gestion des liens d'une nav */
+li {
+    display: inline-block;
+    margin-top: 2rem;
+    margin-right: 2rem;
+}
