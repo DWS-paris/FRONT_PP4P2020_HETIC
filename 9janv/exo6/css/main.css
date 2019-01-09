@@ -1,0 +1,49 @@
+/* 
+Reset
+*/
+    *{
+        padding: 0;
+        margin: 0;
+
+        /* Intégrer padding et border dans la taille des boites */
+        -moz-box-sizing: border-box;
+        -webkit-box-sizing: border-box;
+        box-sizing: border-box;
+    }
+
+    /* Passer en base 10 */
+    html{
+        font-size: 62.5%;
+    }
+
+    body{
+        font-family: serif;
+        font-size: 1.5rem;
+        font-weight: 100;
+        text-align: center;
+        color: white;
+    }
+
+    h1, a{
+        font-family: sans-serif;
+    }
+
+    a{
+        text-decoration: none;
+        color: inherit;
+    }
+
+    ul{
+        list-style: none;
+    }
+/**/
+
+
+
+/* 
+Header
+*/
+    header{
+        background: black;
+    }
+/**/
