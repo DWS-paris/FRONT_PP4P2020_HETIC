@@ -1,0 +1,45 @@
+body{
+    padding: 4rem;
+}
+
+/* 
+- Ajouter une border noire de 1rem sur les balise ul
+- Ajouter une marge intérieure de 2rem sur la balise ul
+*/
+ul{
+    border: 1rem solid black;
+    padding: 2rem;
+    position: relative;
+}
+
+/* 
+Tous les liens sont sur une ligne
+*/
+    li{
+        display: inline-block;
+    }
+/**/
+
+/* 
+Tous les liens de la nav sont à droite sauf le premier qui est à gauche
+*/
+    #rightLeft{
+        /* Tous les liens de la nav sont à droite... */
+        text-align: right;
+    }
+
+    /* ...sauf le premier qui est à gauche */
+    #rightLeft li:first-child, #center li:last-child {
+        position: absolute;
+        left: 2rem;
+    }
+/**/
+
+#leftRight li:last-child, #center li:first-child{
+    position: absolute;
+    right: 2rem;
+}
+
+#center{
+    text-align: center;
+}
