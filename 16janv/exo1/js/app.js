@@ -5,30 +5,55 @@ Attendre le chargement du DOM
 - Exécuter une fonction de callback : () => {...}
 */
     $(document).ready( () => {
-        
-        // Les types de variables
-        let myString = `Je suis une variable de type STRING|CHAR`;
-        console.log(myString);
+        /* 
+        Déclaration des variables
+        */
+            // Créer une variable pour chaque donnée du formulaire
+            let myForm = $('form');
+            let userEmail = $('[name="email"]');
+            let userName = $('[name="name"]');
+            let userType = $('[name="type"]');
+            let userFrom = $('[name="from"]');
+            let userPrefPhone = $('[name="pref_phone"]');
+            let userPrefEmail = $('[name="pref_email"]');
+            let userPrefAddress = $('[name="pref_address"]');
+            let userMessage = $('textarea');
+            
+            /* userEmail.val('Jacques') // Modifier la valeur
+            console.log( userEmail.val() ); // Récupérer la valeur
+            console.log( userEmail.val().length ); // Récupérer la taille */
+        //
 
-        let myInteger = 1979; // INTEGER|INT|ENTIER
-        console.log(myInteger);
+        /* 
+        Déclaration des méthodes/functions
+        */
+            const formSubmission = (event) => {
+                // Bloquer le comportement par defaut du form
+                event.preventDefault();
 
-        let myFloat = 39.5345678; // FLOAT
-        console.log();
+                /* 
+                    - récupérer la valeur de l'input email
+                    - connaitre le nombre de caractères
+                    - si il y à minimum 5 caractères 
+                        alors > l'input est valide
+                        sinon > l'input n'est pas valide
+                */
 
-        let myArray = [ `String`, 19, myFloat ]; // ARRAY
-        console.log(myArray);
+                if( userEmail.val().length >= 5 ){
+                    console.log('Email OK');
+                }
+                else{
+                    console.log('Email PAS OK');
+                };
+            };
+        //
 
-        let myObject = {
-            userName: `Julien`,
-            userAge: 39,
-            userSkills: [
-                `HTML`,
-                `CSS`,
-                `JS`
-            ]
-        }; // OBJECT
-        console.log(myObject);
+        /* 
+        Lancer l'interface
+        */
+            // Capter la soumission du formulaire
+            myForm.submit( formSubmission );
+        //
 
     }); // Fin de la fonction de chargement du DOM
 //
