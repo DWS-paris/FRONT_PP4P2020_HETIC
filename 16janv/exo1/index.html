@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="fr">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>Startbootstarp</title>
+        <link rel="stylesheet" href="./css/main.css">
+    </head>
+    <body>
+        <header>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Startbootstrap</a></li>
+                    <li><a href="#">About</a></li>
+                    <li><a href="#">Services</a></li>
+                    <li><a href="#">Portfolio</a></li>
+                    <li><a href="#">Contacts</a></li>
+                </ul>
+            </nav>
+
+            <section>
+                <h1>Your favorite source of free <a href="#">bootstrap themes</a></h1>
+
+                <p>Startbootstrap can help you build better website usingBootstrap CSS framework! Just download your template and start going, no strings attached.</p>
+    
+                <a href="#">Find out more</a>
+            </section>
+        </header>
+
+        <main>
+            <section>
+                <h2>Téléchargez nos livres blancs</h2>
+                <form action="get_document.php">
+
+                    <label>Email</label>
+                    <input name="email" type="email" placeholder="Min. 5 caractères" minlength="5">
+
+                    <label>Nom</label>
+                    <input name="name" type="text" placeholder="Min. 5 caractères" minlength="5">
+
+                    <label>Sélectionnez votre livre blanc</label>
+                    <select name="type">
+                        <option value="NULL">- Sélectionnez -</option>
+                        <option value="html">HTML</option>
+                        <option value="css">CSS</option>
+                        <option value="js">Javascript</option>
+                        <option value="all">Tous</option>
+                    </select>
+
+                    <label>Comment nous avez-vous connu ?</label>
+                    <ul>
+                        <li><input type="radio" name="from" value="facebook"> Facebook</li>
+                        <li><input type="radio" name="from" value="twitter"> Twitter</li>
+                        <li><input type="radio" name="from" value="other"> Autre</li>
+                    </ul>
+
+                    <label>Préférences de contact</label>
+                    <ul>
+                        <li><input type="checkbox" name="pref_phone"> Téléphone</li>
+                        <li><input type="checkbox" name="pref_email"> Email</li>
+                        <li><input type="checkbox" name="pref_address"> Courrier</li>
+                    </ul>
+
+                    <label for="message">Ajoutez un message</label>
+                    <textarea name="message"></textarea>
+
+                    <button type="submit">Valider</button>
+                </form>
+            </section>
+        </main>
+
+        <!-- Intégrer le script Javacript juste avant la fin du body -->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <script src="./js/app.js"></script>
+    </body>
+</html>

@@ -1,0 +1,157 @@
+/* 
+Reset
+*/
+    /* Injecter des variables dans le CSS */
+    :root{
+        --main-color: #ff7907;
+    }
+
+    *{
+        padding: 0;
+        margin: 0;
+
+        /* Intégrer padding et border dans la taille des boites */
+        -moz-box-sizing: border-box;
+        -webkit-box-sizing: border-box;
+        box-sizing: border-box;
+    }
+
+    /* Passer en base 10 */
+    html{
+        font-size: 62.5%;
+    }
+
+    body{
+        font-family: serif;
+        font-size: 1.5rem;
+        font-weight: 100;
+        text-align: center;
+        color: white;
+    }
+
+    h1, a{
+        font-family: sans-serif;
+        text-transform: uppercase;
+    }
+
+    a{
+        text-decoration: none;
+        color: inherit;
+    }
+
+    ul{
+        list-style: none;
+    }
+/**/
+
+
+
+/* 
+Header
+*/
+    header{
+        background: black;
+        height: 100vh;
+        background-image: url('../img/header.jpg');
+        background-position: center;
+        background-size: cover;
+        background-attachment: fixed;
+
+        margin-bottom: 20rem;
+    }
+
+    nav{
+        font-weight: 900;
+        color: rgba(255, 255, 255, .5);
+        border-bottom: .1rem solid rgba(255, 255, 255, .5);
+        padding: 3rem;
+    }
+
+    nav ul {
+        text-align: right;
+        max-width: 80rem;
+        margin: auto;
+        position: relative; /* Bloquer les enfants dans le parent */
+    }
+
+    nav li:first-child{
+        position: absolute;
+        left: 0;
+    }
+
+    nav li{
+        display: inline-block;
+    }
+
+    nav li:not(:last-child){
+        margin-right: 1rem;
+    }
+
+    header section{
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        width: 100%;
+        max-width: 60rem;
+        
+        -moz-transform: translate(-50%, -50%);
+        -webkit-transform: translate(-50%, -50%);
+        transform: translate(-50%, -50%);
+    }
+
+    h1::after {
+        content: ''; /* Indispensable pour afficher le pseudo-élément */
+        display: block;
+        width: 10rem;
+        margin: 2rem auto;
+        border-bottom: .5rem solid var(--main-color);
+    }
+
+    header p {
+        margin-bottom: 3rem;
+    }
+
+    /* Sélecteur de balise suivante */
+    header p + a{
+        font-weight: 600;
+        padding: 1rem;
+        background: var(--main-color);
+        
+        -moz-border-radius: 2rem;
+        -webkit-border-radius: 2rem;
+        border-radius: 2rem;
+    }
+/**/
+
+/* 
+Main
+*/
+    main{
+        font-size: 4rem;
+        color: black;
+        margin-bottom: 100rem;
+    }
+/**/
+
+/* 
+Formulaire
+*/
+    form{ /* type block */
+        text-align: left;
+        max-width: 50rem;
+        margin: auto;
+    }    
+
+    input, textarea, select{ /* type inline */
+        font-size: 4rem;
+    }
+
+    input[type="text"], input[type="email"], label, select, textarea{ /* type inline */
+        display: block;
+        width: 100%;
+    }
+
+    label{
+        margin: 1rem auto 4rem auto;
+    }
+/**/
