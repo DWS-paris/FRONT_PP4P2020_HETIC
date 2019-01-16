@@ -31,20 +31,26 @@ Attendre le chargement du DOM
                 // Bloquer le comportement par defaut du form
                 event.preventDefault();
 
-                /* 
-                    - récupérer la valeur de l'input email
-                    - connaitre le nombre de caractères
-                    - si il y à minimum 5 caractères 
-                        alors > l'input est valide
-                        sinon > l'input n'est pas valide
-                */
+                // Vérifier le champ email
+                valueChecker(userEmail, 5);
+            };
 
-                if( userEmail.val().length >= 5 ){
+            // Créer une fonction pour valider les champs du formulaire
+            const valueChecker = ( paramInput, paramLength ) => {
+                // Utiliser les paramêtres
+                if( paramInput.val().length >= paramLength ){
                     console.log('Email OK');
                 }
                 else{
-                    console.log('Email PAS OK');
+                    // Modifier le DOM pour indiquer l'erreur
+                    paramInput.addClass('inputError');
                 };
+
+                // Capter l'événement focus
+                paramInput.focus( () => {
+                    // Supprimer la class 'inputError'
+                    paramInput.removeClass('inputError');
+                });
             };
         //
 

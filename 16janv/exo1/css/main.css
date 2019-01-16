@@ -127,7 +127,7 @@ Header
 Main
 */
     main{
-        font-size: 4rem;
+        font-size: 2rem;
         color: black;
         margin-bottom: 100rem;
     }
@@ -142,9 +142,14 @@ Formulaire
         margin: auto;
     }    
 
-    input, textarea, select{ /* type inline */
-        font-size: 4rem;
-    }
+    input, textarea, select{
+        font-size: 2rem;
+        transition: .3s all;
+        -webkit-transition: .3s all;
+        -moz-transition: .3s all;
+        -ms-transition: .3s all;
+        -o-transition: .3s all;
+}
 
     input[type="text"], input[type="email"], label, select, textarea{ /* type inline */
         display: block;
@@ -153,5 +158,9 @@ Formulaire
 
     label{
         margin: 1rem auto 4rem auto;
+    }
+
+    .inputError{
+        border: .1rem solid red;
     }
 /**/
