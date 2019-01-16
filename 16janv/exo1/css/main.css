@@ -163,4 +163,8 @@ Formulaire
     .inputError{
         border: .1rem solid red;
     }
+
+    .labelError{
+       color: red; 
+    }
 /**/
