@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="fr">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>Exo 3 : reqête Fetch</title>
+    </head>
+    <body>
+
+        <header>
+            <h1>Charger des fichiers json avec Ajax (jQuery)</h1>
+            <button>Charger</button>
+        </header>
+
+        <main>
+            <ul></ul>
+        </main>
+        <footer>
+            <p>Under WTFPL - 2019 Julien Noyer</p>
+        </footer>
+
+        <script>
+            
+            document.addEventListener( 'DOMContentLoaded', () => {
+
+                // Sélectionner le bouton
+                const myButton = document.querySelector('button');
+                let myList = document.querySelector('ul');
+                let totalPop = 0;
+                let totalDept = 0;
+
+                // capter le click sur le bouton
+                myButton.addEventListener('click', () => {
+                    console.log('click');
+                    asyncFetch();
+                })
+
+                // Création d'une fonction async
+                const asyncFetch = async () => {
+                    const response = await fetch('./data/data.json');
+                    console.log(response);
+
+                    const json = await response.json();
+                    
+                    // Afficher les données dans le DOM
+                    displayData(json)
+                };
+
+                // Création d'une fonction pour traiter les données
+                const displayData = (data) => {
+                    // Faire une boucle sur le tableau de données
+                    for( let object of data ){
+                        console.log(object.fields);
+
+                        // Calculer le nombre de départements
+                        totalDept++;
+
+                        // Calculer la population totale
+                        totalPop += object.fields.population_2014;
+
+                        // Ajouter des balise dans le DOM
+                        myList.innerHTML += `
+                            <li>
+                                Commune : ${object.fields.libelle_commune} <br>
+                                Département : ${object.fields.departement} <br>
+                                Population 2014 : ${object.fields.population_2014}
+                            </li>
+                        `
+                    };
+
+                    // Afficher le résultat dans le DOM
+                    myList.innerHTML += `
+                        <li>
+                            Population totale : ${totalPop}<br>
+                            Nombre de département: ${totalDept}<br>
+                            Moyenne : ${ totalPop / totalDept }
+                        </li>
+                    `;
+                };
+            });
+        </script>
+    </body>
+</html>

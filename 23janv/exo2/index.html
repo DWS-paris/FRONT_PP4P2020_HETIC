@@ -13,7 +13,9 @@
             <button>Charger</button>
         </header>
 
-        <main></main>
+        <main>
+            <ul></ul>
+        </main>
         <footer>
             <p>Under WTFPL - 2019 Julien Noyer</p>
         </footer>
@@ -30,11 +32,45 @@
 
                     // Capter le bouton dans une varibale/let/const
                     const myButton = $('button');
+                    let totalPop = 0;
+                    let totalDept = 0;
+                    let myList = $('ul');
 
                     // Capter le click sur le bouton
                     myButton.click( () => {
                         console.log('click');
+                        ajaxJquery();
                     });
+
+                    // Fonction ajax
+                    const ajaxJquery = () => {
+                        $.ajax({
+                            // URL du fichier à charger
+                            url: './data/data.json',
+
+                            success: (data) => {
+                                // Faire une boucle sur data pour afficher dans la console chaque objet
+                                for( let objet of data ){
+                                    console.log(objet.fields)
+                                    totalDept++;
+                                    totalPop += objet.fields.population_2014
+
+
+                                    // Ajouter une balise LI dans la liste
+                                    myList[0].innerHtml += "<li> " + objet.fields.population_2014 + " </li>"
+
+                                }
+                                console.log(totalDept);
+                                console.log(totalPop);
+                                console.log( totalPop / totalDept );
+                                console.log(myList.innerHtml)
+                            },
+
+                            error: (err) => {
+                                console.error(err);
+                            }
+                        })
+                    }
 
                 });
             //
