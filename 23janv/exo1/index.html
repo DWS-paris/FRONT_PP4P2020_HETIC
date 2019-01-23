@@ -64,6 +64,9 @@
             */
                 $(document).ready( () => {
 
+                    // Variables
+                    const mainTag = $('main');
+
                     /* 
                     - Sélectionner les balises A de la NAV
                     - Faire une boucle sur le tableau de balise A
@@ -72,8 +75,8 @@
                     */
                         const navLinks = $('nav a'); // Sélectionner les balises A...
 
-                         // Faire une boucle sur...
-                         for( let link of navLinks ){
+                        // Faire une boucle sur...
+                        for( let link of navLinks ){
                             console.log( typeof link)
 
                             // Sélectionner le lien et capter le click
@@ -82,9 +85,26 @@
                                 event.preventDefault();
 
                                 console.log('CLICK');
+
+                                /* 
+                                - Récupérer la valeur de l'attribut "href"
+                                - Utiliser la fonction jqueyLoad avec la valeur "HREF"
+                                */
+                               jqueyLoad( $(link).attr('href') );
                             });
                         };
                     //
+
+                    /* 
+                    Fonction load() jQuery
+                    */
+                        const jqueyLoad = (path) => {
+                            mainTag.load( './pages/' + path )
+                        };
+                    //
+
+                    // Charger le fichier "home.html"
+                    jqueyLoad('home.html');
 
 
                 });
