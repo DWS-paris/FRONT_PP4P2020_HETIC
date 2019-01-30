@@ -20,23 +20,49 @@
             // Convertir un fichier CSV en JSON
             d3.csv( '../data/data_raw.csv' )
             .then( data => {
-
+                console.log(data)
                 let totalAge = 0;
+                let ageNa = 0;
+                let sportsArray = [];
+                let convertedData = {};
                 
-                // Boucle sur le tableau
+                // Boucle sur le tableau pour récupérer les sports
                 for( let item of data ){
-                    // Convertir l'Age en INTEGER/NUMBER/FLOAT
-                    /* item.Age = +item.Age;
 
-                    if( +item.Age !== NaN ){
+                    // Vérifier si le sport est présent dans le tableau sportArray
+                    if( sportsArray.indexOf( item.Sport.replace(' ', '-') ) === -1 ){
+                        // Ajouter le nom du sport dans le tableau
+                        sportsArray.push( item.Sport.replace(' ', '-') );
+                    }
+                    
+                    if( item.Age !== 'NA' ){
+                        // Additionner les âges
                         totalAge += +item.Age;
-                    } */
+                    }
+                    else if( item.Age === 'NA' ){
+                        ageNa++;
+                    }
 
-                    console.log(item)
                 };
+                console.log(sportsArray)
+                // Boucle sur le tableau de sports pour récupérer les sportifs
+                for( let sport of sportsArray ){
+                    console.log(sport);
 
-                console.log(data[100000]);
-                console.log( totalAge / data.length );
+                    // Faire une boucle sur la collection data
+                    for( let item of data ){
+                        // Vérifier le sport de chaque item
+                        if( sport === item.Sport.replace(' ', '-') ){
+                            let prop = item.Sport.replace(' ', '-')
+
+                            // Ajouter le sportif dans l'objet convertedData
+                            convertedData[prop] = [];
+                            convertedData[prop].push(item);
+                        }
+                    }
+                }
+
+                console.log(convertedData)
             })
             .catch( err => {
                 console.error(err)
